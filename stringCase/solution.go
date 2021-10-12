@@ -4,19 +4,16 @@ import "strings"
 
 func toWeirdCase(str string)string{
 	var res string
-	s:=strings.Split(str," ")
-	for i:=0;i<len(s);i++{
-		for j:=0;j<len(s[i]);j++{
-			buf:=s[i]
-			if j%2==0{
-				res+=strings.ToUpper(string(buf[j]))
+
+	for _,value:=range strings.Split(str," "){
+		for index,runes:=range value{
+			if index%2==0{
+				res+=strings.ToUpper(string(runes))
 			}else{
-				res+=strings.ToLower(string(buf[j]))
+				res+=strings.ToLower(string(runes))
 			}
 		}
-		if i<len(s)-1{
-			res+=" "
-		}
+		res+=" "
 	}
-	return res
+	return strings.TrimSpace(res)
 }
