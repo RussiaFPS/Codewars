@@ -5,15 +5,6 @@ import (
 )
 
 func ToCamelCase(s string) string {
-	var res string
-
-	for index,value:=range strings.Split(strings.NewReplacer("_"," ","-"," ").Replace(s)," "){
-		if index==0{
-			res+=value
-		}else{
-			res+=strings.ToUpper(string(value[0]))+value[1:]
-		}
-	}
-
-	return res
+	words:=strings.Split(strings.NewReplacer("_"," ","-"," ").Replace(s)," ")
+	return words[0]+strings.ReplaceAll(strings.Title(strings.Join(words[1:]," "))," ","")
 }
