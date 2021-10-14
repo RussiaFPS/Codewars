@@ -1,4 +1,4 @@
-package Meeting
+package meeting
 
 import (
 	"fmt"
